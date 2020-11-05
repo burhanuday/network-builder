@@ -7,18 +7,21 @@ import { NetworkItem } from "../../interfaces/NetworkItem";
 import TypeIcon from "./TypeIcon";
 import { TouchableHighlight } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
+import { HomeScreenNavigationProp } from "../../screens/Home";
 
 export interface NetworkListItemProps {
   item: NetworkItem;
+  navigation: HomeScreenNavigationProp;
 }
 
-const NetworkListItem: React.FC<NetworkListItemProps> = ({ item }) => {
-  const navigation = useNavigation();
-
+const NetworkListItem: React.FC<NetworkListItemProps> = ({
+  item,
+  navigation,
+}) => {
   return (
     <TouchableHighlight
       onPress={() => {
-        navigation.navigate("CommunityDetails");
+        navigation.navigate("CommunityDetail", { networkItem: item });
       }}
     >
       <Card style={styles.card}>

@@ -3,13 +3,18 @@ import * as React from "react";
 import { Text, View } from "react-native";
 import Layout from "../../components/Layout";
 import NetworkList from "../../components/NetworkList";
+import { RootStackParamList } from "../../navigation/RootNavigator";
 
-export interface HomeProps {}
+export type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, "Home">;
 
-const Home: React.FC<HomeProps> = (props) => {
+type Props = {
+  navigation: HomeScreenNavigationProp;
+};
+
+const Home: React.FC<Props> = (props) => {
   return (
     <Layout>
-      <NetworkList />
+      <NetworkList navigation={props.navigation} />
     </Layout>
   );
 };
