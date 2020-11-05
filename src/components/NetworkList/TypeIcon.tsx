@@ -12,9 +12,10 @@ import WhatsAppIcon from "../../../assets/icons/109-whatsapp.png";
 
 export interface TypeIconProps {
   type: string;
+  size?: number;
 }
 
-const TypeIcon: React.FC<TypeIconProps> = ({ type }) => {
+const TypeIcon: React.FC<TypeIconProps> = ({ type, size }) => {
   const icon = React.useMemo(() => {
     switch (type) {
       case "discord":
@@ -38,13 +39,19 @@ const TypeIcon: React.FC<TypeIconProps> = ({ type }) => {
     }
   }, [type]);
 
-  return <Image style={styles.icon} source={icon} />;
+  return (
+    <Image
+      style={[
+        styles.icon,
+        { height: size ? size : 18, width: size ? size : 18 },
+      ]}
+      source={icon}
+    />
+  );
 };
 
 const styles = StyleSheet.create({
   icon: {
-    height: 18,
-    width: 18,
     marginLeft: 4,
   },
 });

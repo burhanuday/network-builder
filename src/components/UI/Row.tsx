@@ -1,10 +1,12 @@
 import * as React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleProp, StyleSheet, View, ViewStyle } from "react-native";
 
-export interface RowProps {}
+export interface RowProps {
+  style: StyleProp<ViewStyle>;
+}
 
 const Row: React.FC<RowProps> = (props) => {
-  return <View style={styles.row}>{props.children}</View>;
+  return <View style={[styles.row, props.style]}>{props.children}</View>;
 };
 
 const styles = StyleSheet.create({

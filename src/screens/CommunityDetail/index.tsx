@@ -4,9 +4,9 @@ import { RouteProp } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../navigation/RootNavigator";
 import Layout from "../../components/Layout";
-import Button from "../../components/UI/Button";
 import Row from "../../components/UI/Row";
 import TypeIcon from "../../components/NetworkList/TypeIcon";
+import BrandButton from "../../components/BrandButton";
 
 type CommunityDetailNavigationProp = StackNavigationProp<
   RootStackParamList,
@@ -26,6 +26,8 @@ type Props = {
 const CommunityDetail: React.FC<Props> = ({ navigation, route }) => {
   const networkItem = route.params.networkItem;
 
+  const handleJoinPressed = () => {};
+
   return (
     <Layout>
       <View style={styles.layout}>
@@ -36,12 +38,13 @@ const CommunityDetail: React.FC<Props> = ({ navigation, route }) => {
         </Text>
 
         <View style={styles.bottom}>
-          <Button>
-            <Row>
-              <TypeIcon type={networkItem.type} />
-              <Text>Join</Text>
+          <BrandButton onPress={handleJoinPressed} type={networkItem.type}>
+            <Row style={styles.row}>
+              <TypeIcon size={24} type={networkItem.type} />
+              <Text style={styles.buttonText}>Join</Text>
+              <View />
             </Row>
-          </Button>
+          </BrandButton>
         </View>
       </View>
     </Layout>
@@ -72,6 +75,16 @@ const styles = StyleSheet.create({
   bottom: {
     flex: 1,
     justifyContent: "flex-end",
+  },
+  buttonText: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 24,
+    marginLeft: -18,
+  },
+  row: {
+    justifyContent: "space-between",
+    alignItems: "center",
   },
 });
 
