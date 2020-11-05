@@ -21,7 +21,7 @@ const NetworkListItem: React.FC<NetworkListItemProps> = ({
   return (
     <TouchableHighlight
       onPress={() => {
-        navigation.navigate("CommunityDetail", { networkItem: item });
+        navigation.push("CommunityDetail", { networkItem: item });
       }}
     >
       <Card style={styles.card}>
