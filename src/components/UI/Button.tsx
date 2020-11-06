@@ -1,16 +1,26 @@
 import * as React from "react";
-import { GestureResponderEvent, StyleSheet } from "react-native";
+import {
+  GestureResponderEvent,
+  StyleProp,
+  StyleSheet,
+  ViewStyle,
+} from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 export interface ButtonProps {
   onPress?: ((event: GestureResponderEvent) => void) | undefined;
   backgroundColor?: string;
+  style?: StyleProp<ViewStyle>;
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
   return (
     <TouchableOpacity
-      style={[styles.button, { backgroundColor: props.backgroundColor }]}
+      style={[
+        styles.button,
+        { backgroundColor: props.backgroundColor },
+        props.style,
+      ]}
       onPress={props.onPress}
     >
       {props.children}

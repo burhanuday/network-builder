@@ -31,14 +31,20 @@ const CommunityDetail: React.FC<Props> = ({ navigation, route }) => {
   return (
     <Layout>
       <View style={styles.layout}>
-        <Text style={styles.communityName}>{networkItem.communityTitle}</Text>
-        <Text style={styles.category}>{networkItem.category}</Text>
-        <Text style={styles.description}>
-          {networkItem.communityDescription}
-        </Text>
+        <View style={styles.top}>
+          <Text style={styles.communityName}>{networkItem.communityTitle}</Text>
+          <Text style={styles.category}>{networkItem.category}</Text>
+          <Text style={styles.description}>
+            {networkItem.communityDescription}
+          </Text>
+        </View>
 
         <View style={styles.bottom}>
-          <BrandButton onPress={handleJoinPressed} type={networkItem.type}>
+          <BrandButton
+            style={{ borderRadius: 0 }}
+            onPress={handleJoinPressed}
+            type={networkItem.type}
+          >
             <Row style={styles.row}>
               <TypeIcon size={24} type={networkItem.type} />
               <Text style={styles.buttonText}>Join</Text>
@@ -54,6 +60,9 @@ const CommunityDetail: React.FC<Props> = ({ navigation, route }) => {
 const styles = StyleSheet.create({
   layout: {
     backgroundColor: "white",
+    flex: 1,
+  },
+  top: {
     flex: 1,
     padding: 12,
   },

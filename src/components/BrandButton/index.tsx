@@ -1,5 +1,5 @@
 import * as React from "react";
-import { GestureResponderEvent } from "react-native";
+import { GestureResponderEvent, StyleProp, ViewStyle } from "react-native";
 import {
   DISCORD,
   FACEBOOK,
@@ -15,12 +15,14 @@ import Button from "../UI/Button";
 export interface BrandButtonProps {
   type: string;
   onPress?: (event: GestureResponderEvent) => void;
+  style?: StyleProp<ViewStyle>;
 }
 
 const BrandButton: React.FC<BrandButtonProps> = ({
   type,
   children,
   onPress,
+  style,
 }) => {
   const color = React.useMemo(() => {
     switch (type) {
@@ -46,7 +48,7 @@ const BrandButton: React.FC<BrandButtonProps> = ({
   }, [type]);
 
   return (
-    <Button onPress={onPress} backgroundColor={color}>
+    <Button style={style} onPress={onPress} backgroundColor={color}>
       {children}
     </Button>
   );
