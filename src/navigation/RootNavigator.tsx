@@ -1,13 +1,17 @@
+import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import * as React from "react";
-import { NetworkItem } from "../interfaces/NetworkItem";
+
 import CommunityDetail from "../screens/CommunityDetail";
 import Home from "../screens/Home";
+import SubmitNew from "../screens/SubmitNew/SubmitNew";
+
+import { NetworkItem } from "../interfaces/NetworkItem";
 
 export type RootStackParamList = {
   Home: undefined;
   CommunityDetail: { networkItem: NetworkItem };
+  SubmitNew: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -25,6 +29,11 @@ const RootNavigator: React.FC = () => {
           name="CommunityDetail"
           component={CommunityDetail}
           options={{ title: "Community Detail" }}
+        />
+        <Stack.Screen
+          name="SubmitNew"
+          component={SubmitNew}
+          options={{ title: "Submit Community" }}
         />
       </Stack.Navigator>
     </NavigationContainer>

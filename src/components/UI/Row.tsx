@@ -1,9 +1,7 @@
 import * as React from "react";
-import { StyleProp, StyleSheet, View, ViewStyle } from "react-native";
+import { StyleSheet, View, ViewProps } from "react-native";
 
-export interface RowProps {
-  style?: StyleProp<ViewStyle>;
-}
+export type RowProps = ViewProps;
 
 const Row: React.FC<RowProps> = (props) => {
   return <View style={[styles.row, props.style]}>{props.children}</View>;

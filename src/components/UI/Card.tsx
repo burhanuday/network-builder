@@ -1,9 +1,7 @@
 import * as React from "react";
-import { View, StyleSheet, StyleProp, ViewStyle } from "react-native";
+import { View, StyleSheet, ViewProps } from "react-native";
 
-export interface CardProps {
-  style?: StyleProp<ViewStyle>;
-}
+export type CardProps = ViewProps;
 
 const Card: React.FC<CardProps> = (props) => {
   return <View style={[styles.card, props.style]}>{props.children}</View>;

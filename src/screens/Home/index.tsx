@@ -18,11 +18,15 @@ type Props = {
 };
 
 const Home: React.FC<Props> = (props) => {
+  const handleFabPressed = () => {
+    props.navigation.push("SubmitNew");
+  };
+
   return (
     <Layout>
       <NetworkList navigation={props.navigation} />
 
-      <FAB>
+      <FAB onPress={handleFabPressed}>
         <Row style={styles.row}>
           <Ionicons name="ios-add" size={32} color="white" />
           <Text style={styles.fabText}>Submit</Text>
