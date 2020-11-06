@@ -14,6 +14,7 @@ const Layout: React.FC = (props: any) => {
 const styles = StyleSheet.create({
   layout: {
     flex: 1,
+    position: "relative",
   },
 });
 
