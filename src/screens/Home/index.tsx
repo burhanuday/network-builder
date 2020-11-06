@@ -25,7 +25,7 @@ const Home: React.FC<Props> = (props) => {
       <FAB>
         <Row style={styles.row}>
           <Ionicons name="ios-add" size={32} color="white" />
-          <Text style={styles.fabText}>Add</Text>
+          <Text style={styles.fabText}>Submit</Text>
         </Row>
       </FAB>
     </Layout>

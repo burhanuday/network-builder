@@ -27,9 +27,11 @@ const styles = StyleSheet.create({
   fab: {
     minHeight: 48,
     minWidth: 84,
-    borderRadius: 30,
+    borderRadius: 28,
     backgroundColor: "#3498db",
     elevation: 8,
+    paddingHorizontal: 16,
+    paddingVertical: 8,
   },
   container: {
     zIndex: 90,
