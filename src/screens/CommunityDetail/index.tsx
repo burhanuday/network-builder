@@ -7,6 +7,8 @@ import Layout from "../../components/Layout";
 import Row from "../../components/UI/Row";
 import TypeIcon from "../../components/NetworkList/TypeIcon";
 import BrandButton from "../../components/BrandButton";
+import Button from "../../components/UI/Button";
+import VoteButton from "../../components/VoteButton";
 
 type CommunityDetailNavigationProp = StackNavigationProp<
   RootStackParamList,
@@ -40,6 +42,14 @@ const CommunityDetail: React.FC<Props> = ({ navigation, route }) => {
         </View>
 
         <View style={styles.bottom}>
+          <Row style={styles.flexEnd}>
+            <VoteButton upvote={true}>
+              <Text>Upvote</Text>
+            </VoteButton>
+            <VoteButton upvote={false}>
+              <Text>Downvote</Text>
+            </VoteButton>
+          </Row>
           <BrandButton
             style={{ borderRadius: 0 }}
             onPress={handleJoinPressed}
@@ -94,6 +104,10 @@ const styles = StyleSheet.create({
   row: {
     justifyContent: "space-between",
     alignItems: "center",
+  },
+  flexEnd: {
+    justifyContent: "flex-end",
+    marginBottom: 8,
   },
 });
 

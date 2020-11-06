@@ -2,7 +2,7 @@ import * as React from "react";
 import { StyleProp, StyleSheet, View, ViewStyle } from "react-native";
 
 export interface RowProps {
-  style: StyleProp<ViewStyle>;
+  style?: StyleProp<ViewStyle>;
 }
 
 const Row: React.FC<RowProps> = (props) => {
